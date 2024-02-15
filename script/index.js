@@ -50,6 +50,7 @@ const emailVal = () => {
       );
   };
 };
+alert("Malumotlar muvaffaqiyatli qoshildi :)");
 
 let nameLocal = nameVal();
 let surnameLocal = surnameVal();
