@@ -31,8 +31,10 @@ const surnameVal = () => {
 
 const ageVal = () => {
   let ageName = +prompt("Iltimos yoshingizni kiriting");
-  if (!Number(ageName)) {
-    alert("Yosh faqat raqam bilan kiritiladi");
+
+  if (ageName <= 0 || ageName > 200) {
+    alert("Yosh notogri kiritildi");
+    return false;
   } else {
     let ageText = (document.querySelector(".col3").innerHTML = ageName);
   }
@@ -42,8 +44,8 @@ const emailVal = () => {
   let emailAddressName = prompt("Iltimos elektron manzilingizni kiriting");
   let emailText = (document.querySelector(".col4").innerHTML =
     emailAddressName);
-  const validateEmail = (emailAddressName) => {
-    return String(emailAddressName)
+  const validateEmail = (email) => {
+    return String(email)
       .toLowerCase()
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -57,13 +59,13 @@ let ageLocal = ageVal();
 let emaillocal = emailVal();
 
 const localSaver = () => {
-  let userInfo = {
+  let obj = {
     name: nameLocal,
     Surname: surnameLocal,
     age: ageLocal,
     email: emaillocal,
   };
-  localStorage.setItem("UsserInfo", JSON.stringify(localSaver));
+  localStorage.setItem("UserInfo", JSON.stringify(obj));
 };
 
 localSaver();
